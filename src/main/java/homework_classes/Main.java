@@ -18,6 +18,11 @@ public class Main {
         userAccount.deposit(150000);
         userAccount.withdraw(50000);
         userAccount.printBalance();
+        userAccount.withdraw(1200000);
+        userAccount.printBalance();
+        userAccount.withdraw(-10);
+        userAccount.deposit(0);
+        userAccount.printBalance();
 
         Point coords = new Point(52.12345, 46.9876);
         coords.setX(55.5432);
@@ -25,7 +30,7 @@ public class Main {
 
         Circle circle = new Circle(5);
         circle.setRadius(9);
-        System.out.println(circle.calculateAria());
+        System.out.println(circle.calculateArea());
         System.out.println(circle.calculateCircumference());
 
         Teacher severus = new Teacher("Северус Снейп", "Зельеварение");

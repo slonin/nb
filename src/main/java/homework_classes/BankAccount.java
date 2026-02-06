@@ -22,10 +22,28 @@ public class BankAccount {
     }
 
     void deposit(int money) {
+        if (money <= 0) {
+            System.out.println("Некорректная сумма");
+
+            return;
+        }
+
         this.balance = this.balance + money;
     }
 
     void withdraw(int money) {
+        if (money <= 0) {
+            System.out.println("Некорректная сумма");
+
+            return;
+        }
+
+        if (money > this.balance) {
+            System.out.println("Недостаточно средст на балансе");
+
+            return;
+        }
+
         this.balance = this.balance - money;
     }
 

@@ -15,8 +15,8 @@ public class Circle {
         this.radius = newRadius;
     }
 
-    double calculateAria() {
-        return (double) this.radius * Math.PI;
+    double calculateArea() {
+        return Math.PI * this.radius * this.radius;
     }
 
     double calculateCircumference() {
