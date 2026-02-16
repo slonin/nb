@@ -3,6 +3,8 @@ package if_else_switch_for_while;
 import java.util.Scanner;
 
 public class ContinueBreakSolver {
+    static final Scanner SCANNER = new Scanner(System.in);
+
     public static void main(String[] args) {
         sumBeforeFirstNegative();
         ignoreNumbers();
@@ -14,9 +16,8 @@ public class ContinueBreakSolver {
         int sum = 0;
 
         while (true) {
-            Scanner scanner = new Scanner(System.in);
             System.out.print("Введите число ");
-            int number = scanner.nextInt();
+            int number = SCANNER.nextInt();
             if (number < 0) break;
             sum += number;
         }
@@ -34,9 +35,12 @@ public class ContinueBreakSolver {
 
     static void onlyPositiveNumbers() {
         while (true) {
-            Scanner scanner = new Scanner(System.in);
             System.out.print("Введите число ");
-            int number = scanner.nextInt();
+            int number = SCANNER.nextInt();
+
+            if (number == 0) {
+                return;
+            }
 
             if (number < 0) continue;
 
@@ -46,9 +50,8 @@ public class ContinueBreakSolver {
 
     static void untilStop() {
         while (true) {
-            Scanner scanner = new Scanner(System.in);
             System.out.print("Введите строку ");
-            String string = scanner.nextLine();
+            String string = SCANNER.nextLine();
 
             if (string.equals("stop")) break;
         }

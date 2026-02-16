@@ -3,6 +3,8 @@ package if_else_switch_for_while;
 import java.util.Scanner;
 
 public class ForSolver {
+    static final Scanner SCANNER = new Scanner(System.in);
+
     public static void main(String[] args) {
         divideOnThree();
         printSumToN();
@@ -20,9 +22,8 @@ public class ForSolver {
     }
 
     static void printSumToN() {
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Введите число ");
-        int number = scanner.nextInt();
+        int number = SCANNER.nextInt();
         int sum = 0;
 
         for (int i = 0; i <= number; i++) {
@@ -33,9 +34,8 @@ public class ForSolver {
     }
 
     static void printMultiplyTable() {
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Введите число ");
-        int number = scanner.nextInt();
+        int number = SCANNER.nextInt();
 
         for (int i = 1; i <= 10; i++) {
             System.out.println(number + " * " + i + " = " + i * number );
@@ -43,12 +43,17 @@ public class ForSolver {
     }
 
     static void printIsSimpleNumber() {
-        Scanner scanner = new Scanner(System.in);
         System.out.print("Введите число ");
-        int number = scanner.nextInt();
+        int number = SCANNER.nextInt();
         boolean isPrime = true;
 
-        for (int i = 2; i <= number - 1; i++) {
+        if (number < 2) {
+            System.out.println("Не простое");
+
+            return;
+        }
+
+        for (int i = 2; i * i <= number; i++) {
             if (number % i == 0) {
                 isPrime = false;
                 break;

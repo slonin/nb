@@ -3,6 +3,7 @@ package if_else_switch_for_while;
 import java.util.Scanner;
 
 public class IfElseSolver {
+    static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
         checkPositive();
@@ -14,7 +15,6 @@ public class IfElseSolver {
     }
 
     static void checkPositive() {
-        Scanner scanner = new Scanner(System.in);
         System.out.print("Введите число ");
         int number = scanner.nextInt();
         String result;
@@ -31,7 +31,6 @@ public class IfElseSolver {
     }
 
     static void printMaxNumber() {
-        Scanner scanner = new Scanner(System.in);
         System.out.print("Введите первое число ");
         int firstNumber = scanner.nextInt();
         System.out.print("Введите второе число ");
@@ -53,7 +52,6 @@ public class IfElseSolver {
     }
 
     static void printScore() {
-        Scanner scanner = new Scanner(System.in);
         System.out.print("Введите оценку ");
         int score = scanner.nextInt();
 
@@ -75,7 +73,6 @@ public class IfElseSolver {
     }
 
     static void checkParity() {
-        Scanner scanner = new Scanner(System.in);
         System.out.print("Введите число: ");
         int number = scanner.nextInt();
 
@@ -85,12 +82,17 @@ public class IfElseSolver {
     }
 
     static void detectDiscount() {
-        Scanner scanner = new Scanner(System.in);
         System.out.print("Введите возраст ");
         int age = scanner.nextInt();
         String discount ="без скидки";
 
-        if (age < 18 && age > 1) {
+        if (age <= 0) {
+            System.out.println("Некорректный возраст");
+
+            return;
+        }
+
+        if (age < 18) {
             discount = "25%";
         } else if (age >= 65) {
             discount = "30%";
@@ -100,7 +102,6 @@ public class IfElseSolver {
     }
 
     static void printTestScore() {
-        Scanner scanner = new Scanner(System.in);
         System.out.print("Введите количество баллов ");
         int score = scanner.nextInt();
 

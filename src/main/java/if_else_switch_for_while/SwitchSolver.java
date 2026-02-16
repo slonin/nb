@@ -3,6 +3,8 @@ package if_else_switch_for_while;
 import java.util.Scanner;
 
 public class SwitchSolver {
+    static Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args) {
         printDayOfWeek();
         printTicketPrice();
@@ -12,7 +14,6 @@ public class SwitchSolver {
     }
 
     static void printDayOfWeek() {
-        Scanner scanner = new Scanner(System.in);
         System.out.print("Введите номер дня ");
         int day = scanner.nextInt();
         String result = "";
@@ -32,7 +33,6 @@ public class SwitchSolver {
     }
 
     static void printTicketPrice() {
-        Scanner scanner = new Scanner(System.in);
         System.out.print("Введите номер дня ");
         int day = scanner.nextInt();
         String result = "";
@@ -47,7 +47,6 @@ public class SwitchSolver {
     }
 
     static void printScore() {
-        Scanner scanner = new Scanner(System.in);
         System.out.print("Введите оценку ");
         int score = scanner.nextInt();
 
@@ -70,7 +69,6 @@ public class SwitchSolver {
     }
 
     static void printCommands(){
-        Scanner scanner = new Scanner(System.in);
         System.out.print("Введите команду ");
         String command = scanner.nextLine();
         String message = "";
@@ -87,8 +85,6 @@ public class SwitchSolver {
     }
 
     static void simpleCalculator() {
-        Scanner scanner = new Scanner(System.in);
-
         System.out.print("Введите первое число ");
         int firstNumber = scanner.nextInt();
         System.out.print("Введите второе число ");
@@ -112,6 +108,11 @@ public class SwitchSolver {
                 }
 
                 result = firstNumber / (double) secondNumber;
+            }
+            default -> {
+                System.out.println("Неизвестная операция");
+
+                return;
             }
         }
 
