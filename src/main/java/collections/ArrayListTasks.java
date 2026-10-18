@@ -45,7 +45,7 @@ public class ArrayListTasks {
     }
 
     static void printSum(ArrayList<Integer> numbers) {
-        Integer sum = 0;
+        int sum = 0;
 
         for (Integer number : numbers) {
             sum += number;

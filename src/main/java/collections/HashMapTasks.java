@@ -13,7 +13,7 @@ public class HashMapTasks {
 //    Задача 3:
 //    Реализуйте метод, который печатает из HashMap всех пользователей младше 18 лет.
 
-    static void printUnder18(HashMap<String, Integer> users) {
+    static void printUnder18(Map<String, Integer> users) {
         for (Map.Entry<String, Integer> entry : users.entrySet()) {
             if (entry.getValue() < 18) {
                 Utils.printWithText("Пользователь %s меньше 18 лет%n", entry.getKey());

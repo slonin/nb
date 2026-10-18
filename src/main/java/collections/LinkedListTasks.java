@@ -2,6 +2,7 @@ package collections;
 
 import java.util.Arrays;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.ListIterator;
 
 public class LinkedListTasks {
@@ -16,7 +17,6 @@ public class LinkedListTasks {
 
 //    Задача 4:
 //    Создайте LinkedList из целых чисел. Напишите программу, которая вычисляет сумму элементов списка.
-//    Аналогичная логика реализована задаче в ArrayListTasks
 
 //    Задача 5:
 //    Используйте ListIterator для прохода по LinkedList в обоих направлениях.
@@ -29,6 +29,7 @@ public class LinkedListTasks {
 
     static void main() {
         LinkedList<String> strings = new LinkedList<>(Arrays.asList("string", "qwrqwfr", "12345", "wfwrgwgr", "98765"));
+        LinkedList<Integer> numbers = new LinkedList<>(List.of(1, 2, 3, 4, 5, 6, 7));
         Utils.printValue(strings);
 
         strings.clear();
@@ -46,6 +47,15 @@ public class LinkedListTasks {
         }
 
         printHeadAndTail(strings);
+
+        int sum = 0;
+
+        for (int number : numbers) {
+            sum += number;
+        }
+
+        Utils.printValue(sum);
+
 
         ListIterator<String> iterator = strings.listIterator();
 
