@@ -1,5 +1,7 @@
 package exceptions_generics;
 
+import jdk.jshell.execution.Util;
+
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
@@ -19,12 +21,12 @@ public class Main {
         }
     }
 
-    static void divideNumber(int a, int b) {
-        try {
-            System.out.println(a / b);
-        } catch (ArithmeticException e) {
-            System.out.println("Знаменатель не должен быть 0");
+    static double divideNumber(int a, int b) {
+        if (b == 0) {
+            throw new ArithmeticException("Делить на ноль нельзя");
         }
+
+        return (double) a / b;
     }
 
     static boolean isUserAgeValid(int age) throws InvalidUserAgeException {
@@ -80,8 +82,14 @@ public class Main {
         openFile("/Users/daniillonin/IdeaProjects/FP/src/main/java/exceptions_generics/text");
         openFile("somePath");
 
-        divideNumber(4, 2);
-        divideNumber(4, 0);
+        System.out.println(divideNumber(4, 3));
+
+        try {
+            System.out.println(divideNumber(4, 0));
+        } catch (ArithmeticException e) {
+            System.out.println(e.getMessage());
+        }
+
 
         try {
             System.out.println(isUserAgeValid(18));
@@ -99,12 +107,12 @@ public class Main {
 //        System.out.println(isUserEmailValid("lonindaniilgmail.com"));
 
         Box<Integer> intBox = new Box<>();
-        intBox.setElement(1);
-        System.out.println(intBox.getElement());
+        intBox.set(1);
+        System.out.println(intBox.get());
 
         Box<String> strBox = new Box<>();
-        strBox.setElement("2");
-        System.out.println(strBox.getElement());
+        strBox.set("2");
+        System.out.println(strBox.get());
 
         Integer[] intArray = {1, 2, 3};
         String[] strArray = {"4", "5", "6"};
