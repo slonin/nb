@@ -21,7 +21,7 @@ public class GradeService<T extends Number> {
                 .average().orElseThrow(() -> new InvalidGradeException("По предмету " + subject + " нет оценок"));
     }
 
-    public List<StudentGrade<T>> getGrades() {
+    public synchronized List<StudentGrade<T>> getGrades() {
         return List.copyOf(grades);
     }
 }

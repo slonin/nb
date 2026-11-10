@@ -3,11 +3,17 @@ package inventory;
 import complex_tasks.inventory.InventoryService;
 import complex_tasks.inventory.OutOfStockException;
 import complex_tasks.inventory.Product;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class InventoryServiceTest {
+    @AfterEach
+    void reopenInventory() {
+        InventoryService.setInventoryOpen(true);
+    }
+
     @Test
     void inventoryService_addProduct() {
         InventoryService is = new InventoryService();
@@ -19,7 +25,7 @@ public class InventoryServiceTest {
     @Test
     void inventoryService_addProductWhenInventoryCloses() {
         InventoryService is = new InventoryService();
-        is.isInventoryOpen = false;
+        InventoryService.setInventoryOpen(false);
 
         is.addProduct(new Product("Plate", 15, "home"));
         assertThrows(OutOfStockException.class, () -> is.getProductByCategory("home"));

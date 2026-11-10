@@ -45,7 +45,7 @@ public class UserValidatorTest {
 
     @Test
     void userValidator_invalidUserAgeYoung() {
-        User user = new User("nick", 17, "nick@gmail.com");
+        User user = new User("Nick", 17, "nick@gmail.com");
         UserValidator uv = new UserValidator();
 
         assertThrows(InvalidUserException.class, () -> uv.validateUser(user));
@@ -53,7 +53,7 @@ public class UserValidatorTest {
 
     @Test
     void userValidator_invalidUserAgeOld() {
-        User user = new User("nick", 101, "nick@gmail.com");
+        User user = new User("Nick", 101, "nick@gmail.com");
         UserValidator uv = new UserValidator();
 
         assertThrows(InvalidUserException.class, () -> uv.validateUser(user));
@@ -61,7 +61,7 @@ public class UserValidatorTest {
 
     @Test
     void userValidator_invalidUserEmail() {
-        User user = new User("nick", 17, "nickgmail.com");
+        User user = new User("Nick", 20, "nickgmail.com");
         UserValidator uv = new UserValidator();
 
         assertThrows(InvalidUserException.class, () -> uv.validateUser(user));

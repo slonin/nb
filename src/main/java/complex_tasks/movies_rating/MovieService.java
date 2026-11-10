@@ -18,7 +18,7 @@ public class MovieService<T extends Number> {
         }
     }
 
-    public double getAverageRating(Movie movie) {
+    public synchronized double getAverageRating(Movie movie) {
         List<Rating<T>> ratings = moviesRatings.get(movie);
         if (ratings == null || ratings.isEmpty()) {
             throw new IllegalArgumentException("Нет оценок для фильма " + movie.getTitle());
@@ -29,14 +29,14 @@ public class MovieService<T extends Number> {
                 .average().orElse(0);
     }
 
-    public List<Movie> sortMoviesByAverageRate() {
+    public synchronized List<Movie> sortMoviesByAverageRate() {
         return moviesRatings.keySet()
                 .stream()
                 .sorted(Comparator.comparingDouble(this::getAverageRating))
                 .toList();
     }
 
-    public Map<Movie, List<Rating<T>>> getMoviesRatings() {
+    public synchronized Map<Movie, List<Rating<T>>> getMoviesRatings() {
         return Map.copyOf(moviesRatings);
     }
 }

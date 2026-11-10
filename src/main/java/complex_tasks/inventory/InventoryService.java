@@ -7,7 +7,11 @@ import java.util.Map;
 
 public class InventoryService {
     private final Map<String, List<Product>> products = new HashMap<>();
-    public boolean isInventoryOpen = true;
+    private static boolean isInventoryOpen = true;
+
+    public static void setInventoryOpen(boolean inventoryOpen) {
+        isInventoryOpen = inventoryOpen;
+    }
 
     public synchronized void addProduct(Product product) {
         if (!isInventoryOpen) return;
@@ -35,9 +39,7 @@ public class InventoryService {
             throw new OutOfStockException("Товаров в данной категории нет");
         }
 
-        return searchedCategory.stream()
-                .filter(product -> product.getCategory().equals(category))
-                .toList();
+        return searchedCategory;
     }
 
     public synchronized List<Product> getFilteredProductsByPrice(int price) {

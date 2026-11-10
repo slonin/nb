@@ -1,17 +1,17 @@
 package complex_tasks.TaskManager;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Task<T> {
     private final T ID;
     private Status status;
     private final Priority priority;
-    private final LocalDate date;
+    private final LocalDateTime date;
 
     public Task(T ID, Priority priority) {
         this.ID = ID;
         this.status = Status.TO_DO;
-        this.date = LocalDate.now();
+        this.date = LocalDateTime.now();
         this.priority = priority;
     }
 
@@ -31,7 +31,7 @@ public class Task<T> {
         return priority;
     }
 
-    public LocalDate getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
 }
